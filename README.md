@@ -1,4 +1,4 @@
-##The Akoziland Ventoy Imager
+The Akoziland Ventoy Imager
 A wrapper around the offical ventoy script in order to automate the download proccess.
 Download the script, navigate to the directory it is saved in, then run it from the terminal with `./akoziventoyimager.sh`.
 You may need to add executable permissions with `chmod +x akoziventoyimager.sh`.
