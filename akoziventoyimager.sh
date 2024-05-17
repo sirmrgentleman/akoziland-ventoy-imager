@@ -6,8 +6,7 @@
 #Original Author gitlab.com/sirmrgentleman
 
 rss_feed_url="https://sourceforge.net/projects/ventoy/rss?path=/"
-setup_dir=./.ventoy_setup
-
+setup_dir="$HOME/.akoziland_ventoy_imager"
 echo 'Welcome to the Akoziland Ventoy Imager'
 
 #Get flags to pass to Ventoy.
@@ -21,7 +20,7 @@ if [ "$1" == "-h" ]; then
 The Akoziland Ventoy Imager
 A wrapper around the offical ventoy script in order to automate the download proccess.
 Usage:
-akoziventoyimager.sh CMD [ OPTION ] /dev/sdX
+$0 CMD [ OPTION ] /dev/sdX
 CMD:
     -h   display this message
     -i   install ventoy to sdX (fail if disk already installed with ventoy)
@@ -52,11 +51,11 @@ rss_content=$(curl -s "$rss_feed_url")
 download_url=$(echo "$rss_content" | grep -oPm1 "(https://sourceforge.net/projects/ventoy/files/v[0-9]+\.[0-9]+\.[0-9]+/ventoy-[0-9]+\.[0-9]+\.[0-9]+-linux\.tar\.gz/download)")
 echo "Latest Ventoy download URL: $download_url"
 file_name=$(echo "$download_url" | grep -oE '[^/]+\.tar\.gz' | sed 's/\-linux.tar.gz$//')
-curl -L -o ./.ventoy_setup/ventoy-latest.tar.gz $download_url
-tar -xf ./.ventoy_setup/ventoy-latest.tar.gz -C ./.ventoy_setup/
+curl -L -o $setup_dir/ventoy-latest.tar.gz $download_url
+tar -xf $setup_dir/ventoy-latest.tar.gz -C $setup_dir/
 
 #Run the official ventoy script.
 tput setaf 1; echo "Waiting for root password..."; tput sgr0
-sudo "./.ventoy_setup/$file_name/Ventoy2Disk.sh" "$@"
-rm -rf ./.ventoy_setup
+sudo "$setup_dir/$file_name/Ventoy2Disk.sh" "$@"
+rm -rf $setup_dir
 echo "Completed. Exiting...."
