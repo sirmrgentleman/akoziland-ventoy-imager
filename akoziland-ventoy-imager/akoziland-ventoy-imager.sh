@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 #Akoziland Ventoy Imager v1.0, a tool for creating a ventoy image on a drive specified by the user.
 #Run akoziventoyimager.sh -h for help.
