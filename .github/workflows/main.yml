@@ -28,6 +28,6 @@ jobs:
             repo_token: "${{ secrets.GITHUB_TOKEN }}"
             automatic_release_tag: "latest"
             prerelease: false
-            title: "filotimo-core-packages"
+            title: "akoziland-ventoy-imager"
             files: |
               *.tar.gz
