@@ -1,4 +1,9 @@
-The Akoziland Ventoy Imager
+#The Akoziland Ventoy Imager
+
+An RPM spec file may be found at <https://gitlab.com/sirmrgentleman/rpm-sources/-/tree/main/akoziland-ventoy-imager>
+
+A COPR containing built RPMs may be found at <https://copr.fedorainfracloud.org/coprs/sirmrgentleman/akoziland_ventoy_imager>
+
 A wrapper around the offical ventoy script in order to automate the download proccess.
 Download the script, navigate to the directory it is saved in, then run it from the terminal with `./akoziventoyimager.sh`.
 You may need to add executable permissions with `chmod +x akoziventoyimager.sh`.
